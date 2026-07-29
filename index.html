@@ -3,14 +3,14 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>Student Report Portal</title>
+    <title>Student Report Portal</title>
 
-<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -18,147 +18,306 @@ content="width=device-width, initial-scale=1.0">
 
 <div class="container">
 
-    <!-- LEFT SIDEBAR -->
+    <!-- ======================================
+                    SIDEBAR
+    ======================================= -->
 
     <aside class="sidebar">
 
         <h2>Students</h2>
 
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchStudent"
+                placeholder="🔍 Search student...">
+
+        </div>
+
+        <div class="progress-container">
+
+            <div class="progress-header">
+
+                <span>Progress</span>
+
+                <span id="progressPercent">0%</span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div id="progressFill"></div>
+
+            </div>
+
+            <p id="progressText">
+
+                0 / 36 Completed
+
+            </p>
+
+        </div>
+
         <div id="studentList"></div>
 
     </aside>
 
-
-    <!-- RIGHT CONTENT -->
+    <!-- ======================================
+                    CONTENT
+    ======================================= -->
 
     <main class="content">
 
-        <div class="header">
+        <div class="content-wrapper">
 
-    <h1 id="studentName">
-        Select Student
-    </h1>
+            <!-- ======================================
+                        TOP TOOLBAR
+            ======================================= -->
 
-    <p id="studentNumber">
-        SR No :
-    </p>
+            <header class="toolbar">
 
-    <div id="statusBar" class="status saved">
+                <div class="toolbar-left">
 
-        Ready
+                    <h1 id="studentName">
 
-    </div>
+                        Select Student
+
+                    </h1>
+
+                    <div class="toolbar-meta">
+
+                        <span id="studentNumber">
+
+                            Student #1
+
+                        </span>
+
+                        <span class="dot">•</span>
+
+                        <span id="studentPosition">
+
+                            1 / 36
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="toolbar-right">
+
+                    <div
+                        id="statusBar"
+                        class="status saved">
+
+                        ✔ Saved
+
+                    </div>
+
+                    <button
+                        id="previousButton">
+
+                        ◀ Previous
+
+                    </button>
+
+                    <button
+                        id="nextButton">
+
+                        Next ▶
+
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- ======================================
+                        INTRODUCTION
+            ======================================= -->
+
+            <section class="report-card">
+
+                <div class="card-title">
+
+                    🧑 Introduction
+
+                </div>
+
+                <textarea
+                    id="introduction"></textarea>
+
+            </section>
+
+            <!-- ======================================
+                        ENGLISH
+            ======================================= -->
+
+            <section class="report-card">
+
+                <div class="card-title">
+
+                    📚 English
+
+                </div>
+
+                <div class="two-column">
+
+                    <div class="field-card">
+
+                        <label>
+
+                            ⭐ Appreciation
+
+                        </label>
+
+                        <textarea
+                            id="englishAppreciation"></textarea>
+
+                    </div>
+
+                    <div class="field-card">
+
+                        <label>
+
+                            💡 Suggestion
+
+                        </label>
+
+                        <textarea
+                            id="englishSuggestion"></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ======================================
+                        MATHEMATICS
+            ======================================= -->
+
+            <section class="report-card">
+
+                <div class="card-title">
+
+                    ➗ Mathematics
+
+                </div>
+
+                <div class="two-column">
+
+                    <div class="field-card">
+
+                        <label>
+
+                            ⭐ Appreciation
+
+                        </label>
+
+                        <textarea
+                            id="mathAppreciation"></textarea>
+
+                    </div>
+
+                    <div class="field-card">
+
+                        <label>
+
+                            💡 Suggestion
+
+                        </label>
+
+                        <textarea
+                            id="mathSuggestion"></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ======================================
+                        EVS
+            ======================================= -->
+
+            <section class="report-card">
+
+                <div class="card-title">
+
+                    🌿 EVS
+
+                </div>
+
+                <div class="two-column">
+
+                    <div class="field-card">
+
+                        <label>
+
+                            ⭐ Appreciation
+
+                        </label>
+
+                        <textarea
+                            id="evsAppreciation"></textarea>
+
+                    </div>
+
+                    <div class="field-card">
+
+                        <label>
+
+                            💡 Suggestion
+
+                        </label>
+
+                        <textarea
+                            id="evsSuggestion"></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <div class="bottom-actions">
+
+    <button
+        id="previousBottomButton"
+        class="secondary-button">
+
+        ◀ Previous
+
+    </button>
+
+    <button
+        id="saveButton">
+
+        💾 Save Report
+
+    </button>
+
+    <button
+        id="nextBottomButton"
+        class="secondary-button">
+
+        Next ▶
+
+    </button>
 
 </div>
 
-        <section>
-
-            <h2>Introduction</h2>
-
-            <textarea
-                id="introduction">
-            </textarea>
-
-        </section>
-
-
-        <section>
-
-            <h2>English</h2>
-
-            <label>
-
-                Appreciation
-
-            </label>
-
-            <textarea
-                id="englishAppreciation">
-            </textarea>
-
-            <label>
-
-                Suggestion
-
-            </label>
-
-            <textarea
-                id="englishSuggestion">
-            </textarea>
-
-        </section>
-
-
-        <section>
-
-            <h2>Mathematics</h2>
-
-            <label>
-
-                Appreciation
-
-            </label>
-
-            <textarea
-                id="mathAppreciation">
-            </textarea>
-
-            <label>
-
-                Suggestion
-
-            </label>
-
-            <textarea
-                id="mathSuggestion">
-            </textarea>
-
-        </section>
-
-
-        <section>
-
-            <h2>EVS</h2>
-
-            <label>
-
-                Appreciation
-
-            </label>
-
-            <textarea
-                id="evsAppreciation">
-            </textarea>
-
-            <label>
-
-                Suggestion
-
-            </label>
-
-            <textarea
-                id="evsSuggestion">
-            </textarea>
-
-        </section>
-
-
-        <button
-            id="saveButton">
-
-            Save
-
-        </button>
+        </div>
 
     </main>
 
 </div>
 
 <script
-type="module"
-src="script.js">
-
-</script>
+        type="module"
+        src="script.js"></script>
 
 </body>
 

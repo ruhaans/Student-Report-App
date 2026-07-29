@@ -1,134 +1,213 @@
 import {
-
+    App,
     updateCurrentStudentField
-
-}
-
-from "./app.js";
-
-
+} from "./app.js";
 
 import {
-
     saveCurrentStudent
-
-}
-
-from "./save.js";
-
-
+} from "./save.js";
 
 import {
-
     updateStatus
+} from "./ui.js";
 
-}
+import {
+    nextStudent,
+    previousStudent,
+    goToStudent
+} from "./navigation.js";
 
-from "./ui.js";
+const fields = [
 
+    "introduction",
 
+    "englishAppreciation",
 
-const fields=[
+    "englishSuggestion",
 
-"introduction",
+    "mathAppreciation",
 
-"englishAppreciation",
+    "mathSuggestion",
 
-"englishSuggestion",
+    "evsAppreciation",
 
-"mathAppreciation",
-
-"mathSuggestion",
-
-"evsAppreciation",
-
-"evsSuggestion"
+    "evsSuggestion"
 
 ];
-
-
 
 export function initializeEvents(){
 
     fields.forEach(field=>{
 
-        const textarea=
-
+        const textarea =
             document.getElementById(field);
 
         textarea.addEventListener(
-
             "input",
-
             event=>{
 
                 updateCurrentStudentField(
-
                     field,
-
                     event.target.value
-
                 );
 
                 updateStatus(
-
                     "unsaved",
-
                     "Unsaved Changes"
-
                 );
 
             }
-
         );
 
-
-
         textarea.addEventListener(
-    "blur",
-    async () => {
+            "blur",
+            async ()=>{
 
-        if (document.activeElement === textarea)
-            return;
+                if(document.activeElement === textarea)
+                    return;
 
-        await saveCurrentStudent();
+                await saveCurrentStudent();
 
-    }
-);
+            }
+        );
 
     });
-    document.addEventListener("keydown", async (e) => {
 
-    if ((e.ctrlKey || e.metaKey) && e.key === "s") {
+    // ==========================
+    // Keyboard Shortcuts
+    // ==========================
 
-        e.preventDefault();
+    document.addEventListener(
+        "keydown",
+        async (e)=>{
 
-        await saveCurrentStudent();
+            if(!(e.ctrlKey || e.metaKey))
+                return;
 
-    }
+            switch(e.key){
 
-});
+                case "s":
+
+                    e.preventDefault();
+
+                    await saveCurrentStudent();
+
+                    break;
+
+                case "ArrowRight":
+
+                    e.preventDefault();
+
+                    await nextStudent();
+
+                    break;
+
+                case "ArrowLeft":
+
+                    e.preventDefault();
+
+                    await previousStudent();
+
+                    break;
+
+                case "f":
+
+                    e.preventDefault();
+
+                    document
+                        .getElementById("searchStudent")
+                        ?.focus();
+
+                    break;
+
+                case "Home":
+
+                    e.preventDefault();
+
+                    if(App.students.length){
+
+                        await goToStudent(
+                            App.students[0]
+                        );
+
+                    }
+
+                    break;
+
+                case "End":
+
+                    e.preventDefault();
+
+                    if(App.students.length){
+
+                        await goToStudent(
+                            App.students[
+                                App.students.length-1
+                            ]
+                        );
+
+                    }
+
+                    break;
+
+            }
+
+        }
+    );
+
+    // ==========================
+    // Prevent Refresh
+    // ==========================
+
+    window.addEventListener(
+        "beforeunload",
+        event=>{
+
+            if(!App.isDirty)
+                return;
+
+            event.preventDefault();
+
+            event.returnValue = "";
+
+        }
+    );
 
 }
-
-
 
 export function initializeSaveButton(){
 
     document
+        .getElementById("saveButton")
+        .addEventListener(
+            "click",
+            saveCurrentStudent
+        );
 
-    .getElementById(
+}
 
-        "saveButton"
+export function initializeNavigation(){
 
-    )
+    document
+        .getElementById("nextButton")
+        .addEventListener(
+            "click",
+            nextStudent
+        );
 
-    .addEventListener(
+    document
+        .getElementById("previousButton")
+        .addEventListener(
+            "click",
+            previousStudent
+        );
 
-        "click",
+    document
+    .getElementById("previousBottomButton")
+    ?.addEventListener("click", previousStudent);
 
-        saveCurrentStudent
-
-    );
+document
+    .getElementById("nextBottomButton")
+    ?.addEventListener("click", nextStudent);
 
 }
