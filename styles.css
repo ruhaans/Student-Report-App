@@ -1,0 +1,143 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial,sans-serif;
+
+    background:#f5f6fa;
+
+}
+
+.container{
+
+    display:flex;
+
+    height:100vh;
+
+}
+
+.sidebar{
+
+    width:300px;
+
+    background:white;
+
+    border-right:1px solid #ddd;
+
+    overflow-y:auto;
+
+}
+
+.sidebar h2{
+
+    padding:20px;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+.student{
+
+    padding:15px 20px;
+
+    cursor:pointer;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.student:hover{
+
+    background:#f0f4ff;
+
+}
+
+.content{
+
+    flex:1;
+
+    padding:40px;
+
+}
+textarea{
+
+width:100%;
+
+min-height:120px;
+
+padding:12px;
+
+margin-top:8px;
+
+margin-bottom:25px;
+
+font-size:15px;
+
+resize:vertical;
+
+}
+
+button{
+
+padding:12px 30px;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+.header{
+
+    margin-bottom:25px;
+
+}
+
+.status{
+
+    display:inline-block;
+
+    margin-top:12px;
+
+    padding:8px 15px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+}
+
+.saved{
+
+    background:#d4edda;
+
+    color:#155724;
+
+}
+
+.unsaved{
+
+    background:#fff3cd;
+
+    color:#856404;
+
+}
+
+.saving{
+
+    background:#cce5ff;
+
+    color:#004085;
+
+}
+
+.error{
+
+    background:#f8d7da;
+
+    color:#721c24;
+
+}
