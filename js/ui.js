@@ -1,3 +1,4 @@
+import { updateAllWordCounts } from "./events.js";
 export function renderStudentList(students, onClick) {
 
     const list = document.getElementById("studentList");
@@ -88,6 +89,8 @@ export function updateStudentForm(student) {
 
     document.getElementById("evsSuggestion").value =
         student.evsSuggestion;
+
+    updateAllWordCounts();
 
 }
 

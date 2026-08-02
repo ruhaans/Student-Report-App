@@ -211,3 +211,35 @@ document
     ?.addEventListener("click", nextStudent);
 
 }
+
+function updateWordCount(textareaId, counterId) {
+
+    const textarea = document.getElementById(textareaId);
+    const counter = document.getElementById(counterId);
+
+    const words = textarea.value
+        .trim()
+        .split(/\s+/)
+        .filter(word => word.length > 0)
+        .length;
+
+    counter.textContent = `${words} words`;
+}
+
+export function updateAllWordCounts() {
+
+    [
+        ["introduction", "introductionCount"],
+        ["englishAppreciation", "englishAppreciationCount"],
+        ["englishSuggestion", "englishSuggestionCount"],
+        ["mathAppreciation", "mathAppreciationCount"],
+        ["mathSuggestion", "mathSuggestionCount"],
+        ["evsAppreciation", "evsAppreciationCount"],
+        ["evsSuggestion", "evsSuggestionCount"]
+    ].forEach(([textareaId, counterId]) => {
+
+        updateWordCount(textareaId, counterId);
+
+    });
+
+}
