@@ -23,3 +23,19 @@ export async function saveStudent(student) {
     return await response.json();
 
 }
+
+export async function generateReport(prompt) {
+
+    const response = await fetch(
+        `${API_URL}?action=generate`,
+        {
+            method: "POST",
+            body: JSON.stringify({
+                prompt
+            })
+        }
+    );
+
+    return await response.json();
+
+}

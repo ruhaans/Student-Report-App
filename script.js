@@ -12,6 +12,7 @@ import {
 from "./js/events.js";
 import { initializeSearch } from "./js/search.js";
 import { updateProgress } from "./js/progress.js";
+import { initializeAI } from "./js/ai.js";
 
 async function init() {
 
@@ -33,6 +34,8 @@ async function init() {
     );
 
     updateProgress();
+
+    initializeAI();
 
     if (students.length) {
 

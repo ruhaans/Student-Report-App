@@ -35,6 +35,24 @@ const fields = [
 
 ];
 
+const aiFields = [
+
+    "generalAttitude",
+
+    "circleTime",
+
+    "assemblies",
+
+    "events",
+
+    "englishNotes",
+
+    "mathNotes",
+
+    "evsNotes"
+
+];
+
 export function initializeEvents(){
 
     fields.forEach(field=>{
@@ -72,6 +90,101 @@ export function initializeEvents(){
         );
 
     });
+
+    aiFields.forEach(field => {
+
+    const textarea = document.getElementById(field);
+
+    if (!textarea) return;
+
+    textarea.addEventListener(
+        "input",
+        () => {
+
+            if (!App.currentStudent)
+                return;
+
+            switch (field) {
+
+                case "generalAttitude":
+
+                    App.currentStudent.generalAttitude =
+                        textarea.value;
+                    break;
+
+                case "assemblies":
+
+                    App.currentStudent.assembly =
+                        textarea.value;
+                    break;
+
+                case "events":
+
+                    App.currentStudent.eventObservation =
+                        textarea.value;
+                    break;
+
+                case "englishNotes":
+
+                    App.currentStudent.english =
+                        textarea.value;
+                    break;
+
+                case "mathNotes":
+
+                    App.currentStudent.maths =
+                        textarea.value;
+                    break;
+
+                case "evsNotes":
+
+                    App.currentStudent.evs =
+                        textarea.value;
+                    break;
+
+                case "circleTime":
+
+                    const text = textarea.value;
+
+                    const obs1 =
+                        text.match(/Observation 1:\s*([\s\S]*?)(?=\n\s*Observation 2:|$)/i);
+
+                    const obs2 =
+                        text.match(/Observation 2:\s*([\s\S]*)/i);
+
+                    App.currentStudent.circleTime1 =
+                        obs1 ? obs1[1].trim() : "";
+
+                    App.currentStudent.circleTime2 =
+                        obs2 ? obs2[1].trim() : "";
+
+                    break;
+
+            }
+
+            App.isDirty = true;
+
+            updateStatus(
+                "unsaved",
+                "Unsaved Changes"
+            );
+
+        }
+    );
+
+    textarea.addEventListener(
+        "blur",
+        async () => {
+
+            if (document.activeElement === textarea)
+                return;
+
+            await saveCurrentStudent();
+
+        }
+    );
+
+});
 
     // ==========================
     // Keyboard Shortcuts

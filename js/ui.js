@@ -1,4 +1,5 @@
 import { updateAllWordCounts } from "./events.js";
+
 export function renderStudentList(students, onClick) {
 
     const list = document.getElementById("studentList");

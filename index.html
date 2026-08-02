@@ -64,7 +64,7 @@
     </aside>
 
     <!-- ======================================
-                    CONTENT
+                    MAIN CONTENT
     ======================================= -->
 
     <main class="content">
@@ -72,7 +72,7 @@
         <div class="content-wrapper">
 
             <!-- ======================================
-                        TOP TOOLBAR
+                        TOOLBAR
             ======================================= -->
 
             <header class="toolbar">
@@ -106,6 +106,14 @@
                 </div>
 
                 <div class="toolbar-right">
+
+                    <button
+                        id="aiReportButton"
+                        class="secondary-button">
+
+                        📝 AI Report
+
+                    </button>
 
                     <div
                         id="statusBar"
@@ -147,9 +155,16 @@
 
                 <textarea
                     id="introduction"></textarea>
-                    <div class="word-count">
-    <span id="introductionCount">0 words</span>
-</div>
+
+                <div class="word-count">
+
+                    <span id="introductionCount">
+
+                        0 words
+
+                    </span>
+
+                </div>
 
             </section>
 
@@ -177,9 +192,16 @@
 
                         <textarea
                             id="englishAppreciation"></textarea>
-                            <div class="word-count">
-    <span id="englishAppreciationCount">0 words</span>
-</div>
+
+                        <div class="word-count">
+
+                            <span id="englishAppreciationCount">
+
+                                0 words
+
+                            </span>
+
+                        </div>
 
                     </div>
 
@@ -193,9 +215,16 @@
 
                         <textarea
                             id="englishSuggestion"></textarea>
-                            <div class="word-count">
-    <span id="englishSuggestionCount">0 words</span>
-</div>
+
+                        <div class="word-count">
+
+                            <span id="englishSuggestionCount">
+
+                                0 words
+
+                            </span>
+
+                        </div>
 
                     </div>
 
@@ -203,7 +232,7 @@
 
             </section>
 
-            <!-- ======================================
+                <!-- ======================================
                         MATHEMATICS
             ======================================= -->
 
@@ -227,9 +256,16 @@
 
                         <textarea
                             id="mathAppreciation"></textarea>
-                            <div class="word-count">
-    <span id="mathAppreciationCount">0 words</span>
-</div>
+
+                        <div class="word-count">
+
+                            <span id="mathAppreciationCount">
+
+                                0 words
+
+                            </span>
+
+                        </div>
 
                     </div>
 
@@ -243,9 +279,16 @@
 
                         <textarea
                             id="mathSuggestion"></textarea>
-                            <div class="word-count">
-    <span id="mathSuggestionCount">0 words</span>
-</div>
+
+                        <div class="word-count">
+
+                            <span id="mathSuggestionCount">
+
+                                0 words
+
+                            </span>
+
+                        </div>
 
                     </div>
 
@@ -277,9 +320,16 @@
 
                         <textarea
                             id="evsAppreciation"></textarea>
-                            <div class="word-count">
-    <span id="evsAppreciationCount">0 words</span>
-</div>
+
+                        <div class="word-count">
+
+                            <span id="evsAppreciationCount">
+
+                                0 words
+
+                            </span>
+
+                        </div>
 
                     </div>
 
@@ -293,9 +343,16 @@
 
                         <textarea
                             id="evsSuggestion"></textarea>
-                            <div class="word-count">
-    <span id="evsSuggestionCount">0 words</span>
-</div>
+
+                        <div class="word-count">
+
+                            <span id="evsSuggestionCount">
+
+                                0 words
+
+                            </span>
+
+                        </div>
 
                     </div>
 
@@ -303,32 +360,34 @@
 
             </section>
 
+            <!-- ======================================
+                    BOTTOM ACTION BAR
+            ======================================= -->
+
             <div class="bottom-actions">
 
-    <button
-        id="previousBottomButton"
-        class="secondary-button">
+                <button
+                    id="previousBottomButton">
 
-        ◀ Previous
+                    ◀ Previous
 
-    </button>
+                </button>
 
-    <button
-        id="saveButton">
+                <button
+                    id="saveButton">
 
-        💾 Save Report
+                    💾 Save Report
 
-    </button>
+                </button>
 
-    <button
-        id="nextBottomButton"
-        class="secondary-button">
+                <button
+                    id="nextBottomButton">
 
-        Next ▶
+                    Next ▶
 
-    </button>
+                </button>
 
-</div>
+            </div>
 
         </div>
 
@@ -336,9 +395,197 @@
 
 </div>
 
+<!-- ======================================
+            AI REPORT MODAL
+====================================== -->
+
+<div
+    id="aiModal"
+    class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+
+                📝 AI Report Generator
+
+            </h2>
+
+            <button id="closeModal">
+
+                &times;
+
+            </button>
+
+        </div>
+        <div class="modal-body">
+
+        <div class="modal-field">
+
+    <label>
+
+        Student
+
+    </label>
+
+    <div class="student-details">
+
+    <span id="aiStudentName" class="student-name"></span>
+
+    <span class="student-separator">|</span>
+
+    <span id="aiHouse" class="student-meta"></span>
+
+    <span class="student-separator">|</span>
+
+    <span id="aiEvent" class="student-meta"></span>
+
+</div>
+
+</div>
+
+            <div class="modal-field">
+
+                <label>
+
+                    General Attitude
+
+                </label>
+
+                <textarea
+                    id="generalAttitude"></textarea>
+
+            </div>
+
+            <div class="modal-field">
+
+                <label>
+
+                    Circle Time
+
+                </label>
+
+                <textarea
+                    id="circleTime"></textarea>
+
+            </div>
+
+            <div class="modal-field">
+
+                <label>
+
+                    Assemblies
+
+                </label>
+
+                <textarea
+                    id="assemblies"></textarea>
+
+            </div>
+
+            <div class="modal-field">
+
+                <label>
+
+                    Events
+
+                </label>
+
+                <textarea
+                    id="events"></textarea>
+
+            </div>
+
+            
+
+            
+
+            <div class="modal-field">
+
+                <label>
+
+                    English
+
+                </label>
+
+                <textarea
+                    id="englishNotes"></textarea>
+
+            </div>
+
+            <div class="modal-field">
+
+                <label>
+
+                    Mathematics
+
+                </label>
+
+                <textarea
+                    id="mathNotes"></textarea>
+
+            </div>
+
+            <div class="modal-field">
+
+                <label>
+
+                    EVS
+
+                </label>
+
+                <textarea
+                    id="evsNotes"></textarea>
+
+            </div>
+
+            <hr>
+            <button
+    id="generateButton"
+    class="primary-button">
+
+    ✨ Generate Report
+
+</button>
+            <button
+                id="copyPromptButton">
+
+                📋 Copy Prompt
+
+            </button>
+
+            <div class="modal-field">
+
+                <label>
+
+                    Paste Gemini JSON
+
+                </label>
+
+                <textarea
+                    id="jsonInput"
+                    placeholder="Paste Gemini JSON here..."></textarea>
+
+            </div>
+
+            <button
+                id="importJsonButton">
+
+                📥 Import Report
+
+            </button>
+
+        </div>
+</div>
+    </div>
+
+</div>
+
 <script
-        type="module"
-        src="script.js"></script>
+    type="module"
+    src="script.js"></script>
 
 </body>
 
