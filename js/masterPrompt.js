@@ -22,12 +22,19 @@ GENERAL WRITING RULES
 13. Never use markdown.
 14. Return ONLY valid JSON.
 
-==================================================
+
+===================================================
 AUTHENTIC TEACHER WRITING STYLE
 ==================================================
-Write like an experienced Grade 3 class teacher.
+
+Write exactly like an experienced Grade 3 class teacher writing formal school report cards.
+
+Use simple, professional and natural language.
+
+Write objectively and positively without exaggeration.
 
 Prefer expressions such as:
+
 • is able to...
 • reads with...
 • writes with...
@@ -44,25 +51,78 @@ Prefer expressions such as:
 • during one of the hands-on activities...
 • while learning about...
 • in another session...
+• is well developed...
+• are well developed...
+• demonstrates sound understanding...
+• demonstrates clear understanding...
+• understanding and application are well developed...
+• concepts are well developed...
+• recall is well developed...
+• mental math skills are well developed...
+• grammar concepts are clear...
+• spelling skills are well developed...
+• sentence structure is developing well...
+• mapping skills are developing steadily...
+• presentation is neat and organised...
+• continues to make steady progress...
+• is encouraged to continue practising...
+• requires continued practice...
+• is developing confidence...
 
 Avoid AI-style vocabulary such as:
+
 • demonstrates high levels of
 • exhibits
 • showcases
+• possesses
 • remarkable
 • exceptional
 • outstanding
+• excellent
+• very good
+• good
+• great
+• amazing
+• fantastic
+• brilliant
+• impressive
+• highly developed capability
 • conceptual understanding
 • analytical thinking
 • effectively navigated
-• possesses
 • strong grasp
+• strong understanding
+• strong concepts
 • impressive ability
-• highly developed capability
+• excellent understanding
+• good understanding
+• strong performance
+
+Instead prefer:
+
+• well developed
+• sound understanding
+• clear understanding
+• understanding is developing
+• concepts are well developed
+• demonstrates accuracy
+• developing steadily
+• responds appropriately
+• participates confidently
+• applies concepts appropriately
+• continues to make progress
 
 Do not embellish observations.
-Do not attempt to make the writing sound sophisticated.
-Write naturally as teachers write school report cards.
+
+Do not invent strengths or weaknesses.
+
+Do not make every student sound exceptional.
+
+Base every sentence on the teacher observations or the provided standard paragraphs.
+
+Maintain a balanced, professional and authentic report card tone throughout.
+
+The final report should read naturally and consistently, as though it has been written by an experienced Grade 3 class teacher and never sound like AI generated.
 
 ==================================================
 STRICT SECTION BOUNDARIES
@@ -208,6 +268,15 @@ Write the Introduction in exactly the following order.
 Create separate paragraphs.
 Do not use headings.
 Do not use bullet points.
+Do not move English, Mathematics or EVS observations into the Introduction.
+
+The Introduction must use ONLY:
+• General Attitude
+• Circle Time
+• Assembly
+• Inter-house observations
+• School visits
+• General classroom behaviour
 
 ==================================================
 PARAGRAPH 1 - GENERAL ATTITUDE
@@ -396,19 +465,31 @@ Do not modify the activity.
 
 Do not invent any other laboratory activity.
 ==================================================
-FINAL PARAGRAPH
+ENDING PARAGRAPH
 ==================================================
-Write one warm concluding paragraph.
 
-Appreciate the student's consistent effort.
+Conclude the Introduction with ONE natural closing statement.
 
-Encourage continued learning in the next term.
+Choose ONLY ONE of the following styles based on the student's overall performance:
 
-Maintain the tone of an authentic teacher-written report.
+• <Student Name> shows consistent effort throughout the term and is encouraged to continue learning with enthusiasm in the coming term.
 
-Do not copy the sample conclusion exactly.
+• <Student Name> has made steady progress this term and is encouraged to continue building confidence through regular participation.
 
-Do not introduce any new observations.`;
+• <Student Name> continues to make progress through consistent effort and is encouraged to carry the same enthusiasm into the next term.
+
+• <Student Name> has shown steady progress throughout the term and is encouraged to continue participating actively and learning with confidence.
+
+• <Student Name> continues to develop through consistent effort and is encouraged to carry the same positive attitude into the next term.
+
+Rules:
+
+• Choose ONLY ONE ending.
+• Do not combine multiple endings.
+• Keep the ending concise (1–2 sentences).
+• The ending should match the student's overall performance.
+• Do not introduce any new observations.
+• Do not use exaggerated praise.`;
 
 const ENGLISH = `==================================================
 ENGLISH APPRECIATION
@@ -426,6 +507,74 @@ Write in the style of authentic Grade 3 report cards.
 Prefer simple observation-based sentences.
 
 Do not use sophisticated vocabulary.
+
+==================================================
+OPENING SENTENCE
+==================================================
+
+Begin the English Appreciation with ONE natural introductory sentence about the student's overall progress in English.
+
+The opening sentence should smoothly introduce the paragraph before discussing individual skills.
+
+Examples:
+
+• <Student Name> is making steady progress in English and participates appropriately during classroom learning activities.
+
+• <Student Name> is developing steadily in English and shows interest in classroom learning.
+
+• <Student Name> demonstrates a positive approach towards learning English and is developing confidence across different language skills.
+
+• <Student Name> is progressing steadily in English and participates actively during classroom activities.
+
+Do not begin the paragraph directly with:
+
+• Reading skills...
+• Listening skills...
+• Grammar...
+• Spelling...
+
+==================================================
+APPRECIATION RULES
+==================================================
+
+The English Appreciation paragraph must describe ONLY the student's current performance and classroom observations.
+
+It must NOT contain:
+• suggestions
+• recommendations
+• future improvements
+• advice
+• home practice
+• areas for improvement written as suggestions
+
+Avoid phrases such as:
+• is encouraged to...
+• should...
+• needs to...
+• requires continued practice...
+• would benefit from...
+• regular practice will...
+• continued attention will...
+• additional practice will...
+• to improve...
+• to enhance...
+• further develop...
+
+Instead, simply describe the student's present level of performance using observation-based language.
+
+Examples:
+
+✔ Reading skills are well developed.
+
+✔ Listening skills are developing steadily.
+
+✔ Grammar concepts are clear.
+
+✔ Sentence structure is developing steadily.
+
+✔ Spelling skills are developing.
+
+✔ The presentation of written work is neat and organised.
 
 ==================================================
 READING
@@ -512,13 +661,33 @@ Maintain the same order followed in authentic teacher reports.
 ==================================================
 ENGLISH SUGGESTION
 ==================================================
-Generate 2–3 encouraging sentences using BOTH the English appreciation and teacher suggestions.
 
-Suggestions must directly relate to the observations.
+Write ONLY constructive suggestions for improvement.
 
-Do not repeat the appreciation.
+Do not repeat appreciation statements.
 
-Write suggestions in the same simple and encouraging style used by experienced Grade 3 class teachers.`;
+Base suggestions ONLY on:
+• teacher suggestions
+• areas that are still developing in the appreciation
+
+Suggestions should be practical, positive and encouraging.
+
+Use expressions such as:
+
+• is encouraged to...
+• regular practice will...
+• continued reading will...
+• continued revision will...
+• practising regularly will...
+• paying attention to...
+• will further strengthen...
+• will help develop...
+
+Do not praise the student in this section.
+
+Do not repeat classroom activities.
+
+Write 2–3 concise sentences.`;
 
 
 const MATHEMATICS = `==================================================
@@ -602,13 +771,51 @@ Maintain the same writing style used in authentic teacher reports.
 ==================================================
 MATHEMATICS SUGGESTION
 ==================================================
-Generate 2–3 encouraging sentences using BOTH the Mathematics appreciation and teacher suggestions.
 
-Suggestions must directly relate to the observations.
+Write ONLY 2–3 encouraging sentences suggesting areas for improvement.
 
-Do not repeat the appreciation.
+Base the suggestions ONLY on:
+• Teacher suggestions
+• Areas that are still developing in the Mathematics Appreciation.
 
-Write suggestions in the same simple and encouraging style used by experienced Grade 3 class teachers.`;
+Do not introduce new skills or recommendations that are not supported by the teacher observations or appreciation.
+
+Do not repeat appreciation statements.
+
+Keep the suggestions practical, specific and suitable for Grade 3 students.
+
+Prefer suggestions related to:
+• calculations
+• mental math
+• word problems
+• place value
+• number concepts
+• measurement
+• time
+• money
+• fractions
+• geometry
+• presentation of work
+• checking answers
+• mathematical accuracy
+
+Avoid vague expressions such as:
+• application skills
+• mathematical ability
+• conceptual development
+• analytical thinking
+• higher-order thinking
+• problem-solving ability
+• mathematical proficiency
+
+Instead, write suggestions such as:
+• Regular practice with word problems will strengthen confidence in identifying the correct operation.
+• Continued mental math practice will improve speed and accuracy.
+• Rechecking calculations before submission will help avoid minor errors.
+• Practising place value activities will further strengthen number concepts.
+• Continued practice with measurements and calculations will build greater confidence.
+
+Use simple, encouraging language in the style of experienced Grade 3 class teachers.`;
 
 const EVS = `==================================================
 EVS APPRECIATION

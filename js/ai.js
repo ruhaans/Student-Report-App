@@ -230,10 +230,99 @@ ${document.getElementById("evsNotes").value}`;
 
     }
 
+
+}
+
+const loadingOverlay =
+    document.getElementById("aiLoadingOverlay");
+
+const loadingTitle =
+    document.getElementById("aiLoadingTitle");
+
+const loadingMessage =
+    document.getElementById("aiLoadingMessage");
+
+let loadingInterval = null;
+
+const TEACHER_NAME = "Payal";
+
+function getGreeting(){
+
+    const hour = new Date().getHours();
+
+    if(hour < 12)
+        return "Good morning";
+
+    if(hour < 17)
+        return "Good afternoon";
+
+    return "Good evening";
+
+}
+
+function showLoading(){
+
+    document.getElementById("aiGreeting").textContent =
+        `${getGreeting()}, ${TEACHER_NAME}! 👋`;
+
+    document.getElementById("aiPreparingStudent").textContent =
+        `Preparing ${App.currentStudent.name}'s report card...`;
+
+    loadingOverlay.classList.add("show");
+
+}
+
+function hideLoading(){
+
+    loadingOverlay.classList.remove("show");
+
+}
+
+function startLoadingAnimation(){
+
+    const messages=[
+
+        "🧠 Analysing teacher observations...",
+
+        "📝 Drafting Introduction...",
+
+        "📖 Writing English comments...",
+
+        "➗ Preparing Mathematics comments...",
+
+        "🌱 Writing EVS comments...",
+
+        "✨ Finalising report..."
+
+    ];
+
+    let i=0;
+
+    loadingMessage.textContent=messages[0];
+
+    loadingInterval=setInterval(()=>{
+
+        i=(i+1)%messages.length;
+
+        loadingMessage.textContent=messages[i];
+
+    },1800);
+
+}
+
+function stopLoadingAnimation(){
+
+    clearInterval(loadingInterval);
+
 }
 
 async function generateAIReport() {
 
+    const startTime=Date.now();
+
+showLoading();
+
+startLoadingAnimation();
     generateButton.disabled = true;
 
     generateButton.textContent =
@@ -380,7 +469,38 @@ const report = result;
             "✔ AI Report Generated & Saved"
         );
 
-        closeModal();
+        const elapsed=Date.now()-startTime;
+
+const minimum=2000;
+
+if(elapsed<minimum){
+
+    await new Promise(resolve=>
+
+        setTimeout(resolve,minimum-elapsed)
+
+    );
+
+}
+loadingTitle.textContent="✅ Report Generated";
+
+stopLoadingAnimation();
+
+
+
+loadingMessage.textContent="Saving completed successfully.";
+
+await new Promise(resolve=>
+
+    setTimeout(resolve,900)
+
+);
+
+hideLoading();
+
+closeModal();
+
+
 
     }
 
