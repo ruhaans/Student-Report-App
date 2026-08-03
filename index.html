@@ -107,6 +107,10 @@
 
                 <div class="toolbar-right">
 
+                    <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
+                        ◐ Dark mode
+                    </button>
+
                     <button
                         id="aiReportButton"
                         class="secondary-button">
@@ -612,6 +616,15 @@
     </div>
 
 </div>
+
+<aside id="writingCompanion" class="writing-companion" aria-live="polite">
+    <div class="writing-companion-message">Hi! You're doing brilliantly.</div>
+    <button id="dismissCompanion" class="writing-companion-close" type="button" aria-label="Hide writing companion">×</button>
+    <div class="writing-companion-character" aria-hidden="true">
+        <img src="assets/writing-teacher-mascot.png" alt="">
+        <span class="companion-blink"></span>
+    </div>
+</aside>
 
 </body>
 

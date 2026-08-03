@@ -2,6 +2,8 @@ import { App, selectStudent } from "./app.js";
 import { updateStudentForm, updateStudentPosition } from "./ui.js";
 import { saveCurrentStudent } from "./save.js";
 import {highlightStudent } from "./ui.js";
+import { getReportEditor } from "./grammarChecker.js";
+import { rememberStudent } from "./preferences.js";
 
 export async function goToStudent(student){
 
@@ -11,10 +13,12 @@ export async function goToStudent(student){
 
     const current = selectStudent(student.srNo);
 
+    rememberStudent(current.srNo);
+
     updateStudentForm(current);
 
     document
-    .getElementById("introduction")
+    getReportEditor("introduction")
     .focus();
 
     highlightStudent(

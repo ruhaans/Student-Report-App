@@ -13,12 +13,20 @@ from "./js/events.js";
 import { initializeSearch } from "./js/search.js";
 import { updateProgress } from "./js/progress.js";
 import { initializeAI } from "./js/ai.js";
+import { initializeGrammarChecker } from "./js/grammarChecker.js";
+import { getRememberedStudent, initializePreferences, restoreScrollPosition } from "./js/preferences.js";
+import { initializeWritingCompanion } from "./js/writingCompanion.js";
 
 async function init() {
+
+    initializePreferences();
+    initializeWritingCompanion();
 
     const students = await loadAllStudents();
 
     setStudents(students);
+
+    initializeGrammarChecker();
 
     initializeEvents();
 
@@ -39,9 +47,8 @@ async function init() {
 
     if (students.length) {
 
-        await goToStudent(
-            students[0]
-        );
+        await goToStudent(getRememberedStudent(students) || students[0]);
+        requestAnimationFrame(restoreScrollPosition);
 
     }
 

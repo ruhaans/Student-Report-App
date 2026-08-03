@@ -1,4 +1,5 @@
 import { updateAllWordCounts } from "./events.js";
+import { setReportFieldValue } from "./grammarChecker.js";
 
 export function renderStudentList(students, onClick) {
 
@@ -70,26 +71,19 @@ export function updateStudentForm(student) {
     document.getElementById("studentNumber").textContent =
         `SR No : ${student.srNo}`;
 
-    document.getElementById("introduction").value =
-        student.introduction;
+    setReportFieldValue("introduction", student.introduction);
 
-    document.getElementById("englishAppreciation").value =
-        student.englishAppreciation;
+    setReportFieldValue("englishAppreciation", student.englishAppreciation);
 
-    document.getElementById("englishSuggestion").value =
-        student.englishSuggestion;
+    setReportFieldValue("englishSuggestion", student.englishSuggestion);
 
-    document.getElementById("mathAppreciation").value =
-        student.mathAppreciation;
+    setReportFieldValue("mathAppreciation", student.mathAppreciation);
 
-    document.getElementById("mathSuggestion").value =
-        student.mathSuggestion;
+    setReportFieldValue("mathSuggestion", student.mathSuggestion);
 
-    document.getElementById("evsAppreciation").value =
-        student.evsAppreciation;
+    setReportFieldValue("evsAppreciation", student.evsAppreciation);
 
-    document.getElementById("evsSuggestion").value =
-        student.evsSuggestion;
+    setReportFieldValue("evsSuggestion", student.evsSuggestion);
 
     updateAllWordCounts();
 

@@ -10,6 +10,7 @@ import {
 import {
     updateStatus
 } from "./ui.js";
+import { getReportEditor, getReportFieldValue } from "./grammarChecker.js";
 
 import {
     nextStudent,
@@ -57,8 +58,7 @@ export function initializeEvents(){
 
     fields.forEach(field=>{
 
-        const textarea =
-            document.getElementById(field);
+        const textarea = getReportEditor(field);
 
         textarea.addEventListener(
             "input",
@@ -66,7 +66,7 @@ export function initializeEvents(){
 
                 updateCurrentStudentField(
                     field,
-                    event.target.value
+                    event.target.textContent
                 );
 
                 updateStatus(
@@ -330,7 +330,7 @@ function updateWordCount(textareaId, counterId) {
     const textarea = document.getElementById(textareaId);
     const counter = document.getElementById(counterId);
 
-    const words = textarea.value
+    const words = getReportFieldValue(textareaId)
         .trim()
         .split(/\s+/)
         .filter(word => word.length > 0)

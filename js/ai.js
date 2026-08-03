@@ -4,6 +4,7 @@ import { generateReport } from "./api.js";
 import { saveCurrentStudent } from "./save.js";
 import { updateStatus } from "./ui.js";
 import { updateAllWordCounts } from "./events.js";
+import { setReportFieldValue } from "./grammarChecker.js";
 const modal = document.getElementById("aiModal");
 
 const openButton = document.getElementById("aiReportButton");
@@ -399,26 +400,19 @@ const report = result;
         // Populate Report Fields
         // -----------------------------
 
-        document.getElementById("introduction").value =
-            result.introduction || "";
+        setReportFieldValue("introduction", result.introduction || "");
 
-        document.getElementById("englishAppreciation").value =
-            result.englishAppreciation || "";
+        setReportFieldValue("englishAppreciation", result.englishAppreciation || "");
 
-        document.getElementById("englishSuggestion").value =
-            result.englishSuggestion || "";
+        setReportFieldValue("englishSuggestion", result.englishSuggestion || "");
 
-        document.getElementById("mathAppreciation").value =
-            result.mathAppreciation || "";
+        setReportFieldValue("mathAppreciation", result.mathAppreciation || "");
 
-        document.getElementById("mathSuggestion").value =
-            result.mathSuggestion || "";
+        setReportFieldValue("mathSuggestion", result.mathSuggestion || "");
 
-        document.getElementById("evsAppreciation").value =
-            result.evsAppreciation || "";
+        setReportFieldValue("evsAppreciation", result.evsAppreciation || "");
 
-        document.getElementById("evsSuggestion").value =
-            result.evsSuggestion || "";
+        setReportFieldValue("evsSuggestion", result.evsSuggestion || "");
 
         // -----------------------------
         // Update Current Student

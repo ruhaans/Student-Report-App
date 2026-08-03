@@ -642,6 +642,48 @@ textarea:focus{
 
 }
 
+:root[data-theme="dark"]{
+
+    --primary:#60a5fa;
+    --primary-dark:#93c5fd;
+    --success:#4ade80;
+    --warning:#fbbf24;
+    --danger:#f87171;
+    --bg:#111827;
+    --surface:#1f2937;
+    --border:#374151;
+    --border-light:#334155;
+    --text:#f8fafc;
+    --text-light:#cbd5e1;
+    --shadow-sm:0 4px 12px rgba(0,0,0,.22);
+    --shadow-md:0 8px 24px rgba(0,0,0,.30);
+    --shadow-lg:0 18px 40px rgba(0,0,0,.40);
+
+}
+
+/* Real-time writing assistant for the report fields. */
+.report-editor-source{ display:none; }
+
+.report-editor{
+    width:100%; min-height:155px; padding:18px; border:1px solid #d8dee8;
+    border-radius:14px; background:#fbfcfe; color:var(--text); font-size:15px;
+    line-height:1.7; white-space:pre-wrap; overflow-wrap:break-word; resize:vertical;
+    overflow:auto; transition:.25s;
+}
+
+.report-editor:hover{ border-color:#cbd5e1; background:white; }
+.report-editor:focus{ outline:none; border-color:var(--primary); background:white; box-shadow:0 0 0 5px rgba(37,99,235,.12); }
+#introduction + .report-editor{ min-height:170px; }
+
+.writing-issue{ cursor:pointer; text-decoration-line:underline; text-decoration-style:wavy; text-decoration-thickness:1.5px; text-underline-offset:3px; }
+.writing-issue.spelling{ text-decoration-color:#dc2626; }
+.writing-issue.grammar{ text-decoration-color:#2563eb; }
+
+.writing-suggestions{ position:fixed; z-index:10000; max-width:310px; padding:12px; border:1px solid var(--border); border-radius:12px; background:#fff; box-shadow:var(--shadow-lg); }
+.writing-suggestions p{ margin:0 0 8px; color:var(--text-light); font-size:13px; line-height:1.4; }
+.writing-suggestions button{ display:block; width:100%; margin-top:6px; padding:8px 10px; text-align:left; border-radius:8px; background:#eff6ff; color:#1d4ed8; font-size:14px; }
+.writing-suggestions button:hover{ transform:none; box-shadow:none; background:#dbeafe; }
+
 /* ==========================================================
    INTRODUCTION
 ========================================================== */
@@ -1014,6 +1056,41 @@ textarea,
 /* ==========================================================
    END OF STYLESHEET
 ========================================================== */
+
+/* ==========================================================
+   PERSISTENT THEME
+========================================================== */
+
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] .report-editor{
+    background:#111827;
+    border-color:#475569;
+    color:var(--text);
+}
+
+:root[data-theme="dark"] textarea:hover,
+:root[data-theme="dark"] .report-editor:hover,
+:root[data-theme="dark"] textarea:focus,
+:root[data-theme="dark"] .report-editor:focus{
+    background:#0f172a;
+}
+
+:root[data-theme="dark"] .search-box input,
+:root[data-theme="dark"] .modal-content,
+:root[data-theme="dark"] .modal-header,
+:root[data-theme="dark"] .writing-suggestions,
+:root[data-theme="dark"] .ai-loading-card{
+    background:#1f2937;
+    color:var(--text);
+}
+
+:root[data-theme="dark"] .search-box input{ color:var(--text); border-color:#475569; }
+:root[data-theme="dark"] .field-card label{ background:#172554; color:#bfdbfe; }
+:root[data-theme="dark"] .student:hover{ background:#24344f; }
+:root[data-theme="dark"] .writing-suggestions p{ color:var(--text-light); }
+
+.theme-toggle{ background:#475569 !important; }
+.theme-toggle:hover{ background:#334155 !important; }
 
 
 
@@ -1450,5 +1527,140 @@ textarea,
 
     }
 
+}
+
+/* Keep late modal styles aligned with the selected dark theme. */
+:root[data-theme="dark"] .modal-content,
+:root[data-theme="dark"] .modal-header,
+:root[data-theme="dark"] .ai-loading-card{
+    background:#1f2937;
+    color:var(--text);
+    border-color:var(--border);
+}
+
+/* A complete dark palette: high-contrast writing surfaces, muted chrome. */
+:root[data-theme="dark"] .sidebar{
+    background:#182436;
+    border-color:#334155;
+}
+
+:root[data-theme="dark"] .content{ background:#0f172a; }
+:root[data-theme="dark"] .report-card{ background:#1b293b; border-color:#334155; }
+:root[data-theme="dark"] .toolbar{ border-color:#334155; }
+:root[data-theme="dark"] .sidebar h2,
+:root[data-theme="dark"] .toolbar-left h1,
+:root[data-theme="dark"] .card-title,
+:root[data-theme="dark"] .sidebar .student-name,
+:root[data-theme="dark"] .student.active .student-name,
+:root[data-theme="dark"] .student.active .student-number{ color:#f8fafc; }
+
+:root[data-theme="dark"] .sidebar .student-number,
+:root[data-theme="dark"] .word-count,
+:root[data-theme="dark"] .modal-field label,
+:root[data-theme="dark"] .student-meta,
+:root[data-theme="dark"] #aiLoadingMessage,
+:root[data-theme="dark"] #aiPreparingStudent{ color:#cbd5e1; }
+
+:root[data-theme="dark"] .report-editor{
+    background:#0c1527;
+    border-color:#40516b;
+    color:#f1f5f9;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+:root[data-theme="dark"] .report-editor:hover{ background:#101c31; border-color:#5a7092; }
+:root[data-theme="dark"] .report-editor:focus{ background:#101c31; border-color:#60a5fa; box-shadow:0 0 0 4px rgba(96,165,250,.18); }
+:root[data-theme="dark"] .search-box input{ background:#152235; color:#f8fafc; }
+:root[data-theme="dark"] .search-box input:focus{ background:#101c31; }
+:root[data-theme="dark"] .progress-bar{ background:#344154; }
+:root[data-theme="dark"] .student:hover{ background:#263956; }
+:root[data-theme="dark"] .student.active{ background:#3b82f6; }
+:root[data-theme="dark"] .field-card label{ background:#1e3a5f; color:#dbeafe; }
+
+:root[data-theme="dark"] .saved{ background:#123b2a; color:#bbf7d0; }
+:root[data-theme="dark"] .unsaved{ background:#4a3511; color:#fde68a; }
+:root[data-theme="dark"] .saving{ background:#1e3a5f; color:#bfdbfe; }
+:root[data-theme="dark"] .error{ background:#4b2025; color:#fecaca; }
+
+:root[data-theme="dark"] .writing-suggestions{ background:#24344b; border-color:#526780; }
+:root[data-theme="dark"] .writing-suggestions button{ background:#1e3a5f; color:#dbeafe; }
+:root[data-theme="dark"] .writing-suggestions button:hover{ background:#294d7a; }
+:root[data-theme="dark"] #closeModal{ background:#334155; color:#f8fafc; }
+:root[data-theme="dark"] .modal hr,
+:root[data-theme="dark"] .modal-header,
+:root[data-theme="dark"] .ai-divider{ border-color:#475569; }
+
+/* A gentle, dismissible companion for longer writing sessions. */
+.writing-companion{ position:fixed; right:28px; bottom:20px; z-index:100; display:flex; align-items:flex-end; pointer-events:none; }
+.writing-companion-message{ position:absolute; right:0; bottom:154px; width:218px; padding:11px 14px; border:1px solid #bfdbfe; border-radius:14px 14px 4px 14px; background:#fff; color:#1e3a5f; box-shadow:0 8px 22px rgba(15,23,42,.14); font-size:13px; font-weight:600; line-height:1.35; opacity:0; transform:translateY(8px) scale(.96); transition:opacity .2s,transform .2s; }
+.writing-companion-message::after{ content:""; position:absolute; right:27px; bottom:-7px; width:13px; height:13px; background:inherit; border-right:1px solid #bfdbfe; border-bottom:1px solid #bfdbfe; transform:rotate(45deg); }
+.writing-companion-message.is-visible{ opacity:1; transform:translateY(0) scale(1); }
+.writing-companion-character{ position:relative; width:72px; height:78px; overflow:hidden; border-radius:36px 36px 18px 18px; background:linear-gradient(145deg,#93c5fd,#60a5fa); box-shadow:0 9px 22px rgba(37,99,235,.28); }
+.companion-hair{ position:absolute; top:10px; left:13px; width:46px; height:28px; border-radius:50% 50% 35% 35%; background:#6b3e26; }
+.companion-face{ position:absolute; top:23px; left:13px; display:grid; width:46px; height:40px; place-items:center; border-radius:48% 48% 45% 45%; background:#f7cda8; color:#4a2c1c; font-size:17px; font-weight:700; }
+.companion-wave{ position:absolute; right:-5px; bottom:4px; font-size:22px; animation:companion-wave 2.4s ease-in-out infinite; }
+.writing-companion-close{ position:absolute; top:-8px; right:0; width:22px; height:22px; padding:0; border-radius:50%; background:#64748b; color:#fff; font-size:16px; line-height:1; pointer-events:auto; opacity:0; }
+.writing-companion:hover .writing-companion-close{ opacity:1; }
+@keyframes companion-wave{ 0%,55%,100%{ transform:rotate(0); } 65%,85%{ transform:rotate(15deg); } 75%,95%{ transform:rotate(-10deg); } }
+:root[data-theme="dark"] .writing-companion-message{ background:#24344b; border-color:#526780; color:#e0efff; }
+@media (max-width:700px){ .writing-companion{ right:16px; bottom:16px; } .writing-companion-message{ display:none; } }
+
+/* Use the generated full-body mascot in place of the CSS-only character. */
+.writing-companion-character{
+    width:116px;
+    height:150px;
+    overflow:visible;
+    border-radius:0;
+    background:none;
+    box-shadow:none;
+}
+
+.writing-companion-character img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    filter:drop-shadow(0 9px 12px rgba(15,23,42,.25));
+}
+
+.companion-blink{
+    position:absolute;
+    top:45px;
+    left:31px;
+    width:15px;
+    height:3px;
+    border-radius:50%;
+    background:#e8a981;
+    box-shadow:37px 0 #e8a981;
+    opacity:0;
+    pointer-events:none;
+}
+
+.writing-companion-character.is-alert{ animation:mascot-alert 1.6s ease-in-out 2; }
+.writing-companion-character.is-alert .companion-blink{ animation:mascot-blink .2s ease-in-out 3 1.1s; }
+
+@keyframes mascot-bounce{
+    0%,100%{ transform:translateY(0) rotate(0); }
+    35%{ transform:translateY(-9px) rotate(-2deg); }
+    70%{ transform:translateY(-2px) rotate(2deg); }
+}
+
+@keyframes mascot-alert{
+    0%,100%{ transform:translateY(0) rotate(0); }
+    20%{ transform:translateY(-9px) rotate(-4deg); }
+    40%{ transform:translateY(-2px) rotate(5deg); }
+    60%{ transform:translateY(-7px) rotate(-4deg); }
+    80%{ transform:translateY(-1px) rotate(3deg); }
+}
+
+@keyframes mascot-sway{
+    0%,100%{ transform:translateY(0) rotate(0); }
+    25%{ transform:translateY(-4px) rotate(-5deg); }
+    55%{ transform:translateY(-7px) rotate(5deg); }
+}
+
+@keyframes mascot-blink{
+    0%,100%{ opacity:0; transform:scaleY(.1); }
+    40%,60%{ opacity:1; transform:scaleY(1); }
 }
 
