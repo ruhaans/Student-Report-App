@@ -5,6 +5,7 @@ import { saveCurrentStudent } from "./save.js";
 import { updateStatus } from "./ui.js";
 import { updateAllWordCounts } from "./events.js";
 import { setReportFieldValue } from "./grammarChecker.js";
+import { parseJsonInput } from "./reportImport.js";
 const modal = document.getElementById("aiModal");
 
 const openButton = document.getElementById("aiReportButton");
@@ -15,8 +16,22 @@ const studentName = document.getElementById("aiStudentName");
 
 const copyButton = document.getElementById("copyPromptButton");
 
+const importButton = document.getElementById("importJsonButton");
+
+const jsonInput = document.getElementById("jsonInput");
+
 const generateButton =
     document.getElementById("generateButton");
+
+const REPORT_FIELDS = [
+    "introduction",
+    "englishAppreciation",
+    "englishSuggestion",
+    "mathAppreciation",
+    "mathSuggestion",
+    "evsAppreciation",
+    "evsSuggestion"
+];
 
 
 
@@ -40,6 +55,11 @@ export function initializeAI(){
     copyButton.addEventListener(
         "click",
         copyPrompt
+    );
+
+    importButton.addEventListener(
+        "click",
+        importJsonReport
     );
 
     modal.addEventListener(
@@ -517,4 +537,45 @@ closeModal();
 
     }
 
+}
+
+function applyReport(report) {
+    REPORT_FIELDS.forEach(field => {
+        if (!(field in report)) return;
+        setReportFieldValue(field, report[field]);
+        App.currentStudent[field] = report[field];
+    });
+    App.isDirty = true;
+    updateAllWordCounts();
+}
+
+async function importJsonReport() {
+    if (!App.currentStudent) return;
+
+    importButton.disabled = true;
+    importButton.textContent = "⏳ Importing...";
+
+    try {
+        if (!jsonInput.value.trim()) {
+            throw new Error("Paste the Gemini JSON before importing.");
+        }
+        const report = parseJsonInput(jsonInput.value);
+        applyReport(report);
+        updateStatus("unsaved", "Report Imported");
+
+        const saved = await saveCurrentStudent();
+        if (!saved) {
+            throw new Error("The report was imported, but it could not be saved. Please use Save Report to try again.");
+        }
+
+        jsonInput.value = "";
+        updateStatus("saved", "✔ Report Imported & Saved");
+        closeModal();
+    } catch (error) {
+        console.error(error);
+        alert(error.message || "The report could not be imported.");
+    } finally {
+        importButton.disabled = false;
+        importButton.textContent = "📥 Import Report";
+    }
 }
